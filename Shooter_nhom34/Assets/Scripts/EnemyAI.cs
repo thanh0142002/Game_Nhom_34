@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
@@ -9,6 +9,9 @@ public class EnemyAI : MonoBehaviour
     public bool roaming = true;
     public float moveSpeed;
     public float nextWPDistance;
+    private Transform player; // Tham chiếu đến nhân vật của người chơi
+    private SpriteRenderer spriteRenderer; // Tham chiếu đến SpriteRenderer của AI
+
 
     public Seeker seeker;
     public bool updateContinuesPath;
@@ -20,21 +23,42 @@ public class EnemyAI : MonoBehaviour
     public float timeBtwFire;
     private float fireCooldown;
 
+    //Health
+    public float Hitpoints;
+    public float MaxHitpoints = 5;
+    public EnemyHeal HealthBar;
+
     bool reachDestination = false;
     Path path;
     Coroutine moveCoroutine;
 
     private void Start()
     {
+        player = FindObjectOfType<Player>().transform; // Lấy tham chiếu đến nhân vật của người chơi
+        spriteRenderer = GetComponent<SpriteRenderer>(); // Lấy tham chiếu đến SpriteRenderer của AI
+
+        Hitpoints = MaxHitpoints;
+        HealthBar.SetHealth(Hitpoints, MaxHitpoints);
         InvokeRepeating("CalculatePath", 0f, 0.5f);
         reachDestination = true;
+
     }
 
     private void Update()
     {
-        
-        fireCooldown -= Time.deltaTime;
+        Vector3 direction = player.position - transform.position;
+        if (direction.x < 0) // Nếu nhân vật của người chơi đang ở bên trái AI
+        {
+            // Đảo ngược hình ảnh của AI
+            spriteRenderer.flipX = true;
+        }
+        else if (direction.x > 0) // Nếu nhân vật của người chơi đang ở bên phải AI
+        {
+            // Khôi phục hình ảnh ban đầu của AI
+            spriteRenderer.flipX = false;
+        }
 
+        fireCooldown -= Time.deltaTime;
         if (fireCooldown < 0) {
 
             fireCooldown = timeBtwFire;
@@ -98,5 +122,13 @@ public class EnemyAI : MonoBehaviour
             return (Vector2)playerPos + (Random.Range(10f, 50f) * new Vector2(Random.Range(-1, 1), Random.Range(-1, 1)).normalized);
         else
             return playerPos;
+    }
+
+    public void TakeHit(float damege)
+    {
+        Hitpoints -= damege;
+        HealthBar.SetHealth(Hitpoints, MaxHitpoints);
+        if (Hitpoints <= 0) 
+            Destroy(gameObject);
     }
 }
