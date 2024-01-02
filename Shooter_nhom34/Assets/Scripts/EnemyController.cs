@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             playerS = collision.GetComponent<Player>();
-            InvokeRepeating("DamagePlayer", 0, 0.1f);
+            InvokeRepeating("DamagePlayer", 0, 1f);
         }
     }
 
@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
     {
         int damage = UnityEngine.Random.Range(minDamage, maxDamage);
         Debug.Log("Player take damage" + damage);
-        //playerS.TakeDamage(damage);
+        playerS.TakeDamage(damage);
     }
+
+
 }

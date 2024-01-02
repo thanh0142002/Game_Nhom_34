@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int maxHealth;
+/*    [SerializeField] int maxHealth;
     int currentHealth;
 
     public HealthBar healthBar;
@@ -32,12 +32,12 @@ public class PlayerHealth : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        healthBar.UpdateBar(currentHealth, maxHealth);
         if (currentHealth <= 0) 
         {
             currentHealth = 0;
             OnDeath.Invoke();  
         }
-        healthBar.UpdateBar(currentHealth, maxHealth);
     }
 
     public void Death() 
@@ -47,8 +47,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             TakeDamage(20);
         }
-    }
+    }*/
+
+
 }

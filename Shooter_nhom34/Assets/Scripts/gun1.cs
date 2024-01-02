@@ -81,9 +81,7 @@ public class gun1 : MonoBehaviour
     {
         timeBtwFire = TimeBtwFire;
         GameObject bulletTmp = Instantiate(bullet, firePos.position, Quaternion.identity);
-
-        Rigidbody2D
-            rb = bulletTmp.GetComponent<Rigidbody2D>();
+        Rigidbody2D rb = bulletTmp.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
     }
 }

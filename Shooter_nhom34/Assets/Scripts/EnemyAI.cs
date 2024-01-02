@@ -39,6 +39,7 @@ public class EnemyAI : MonoBehaviour
 
         Hitpoints = MaxHitpoints;
         HealthBar.SetHealth(Hitpoints, MaxHitpoints);
+
         InvokeRepeating("CalculatePath", 0f, 0.5f);
         reachDestination = true;
 
@@ -86,6 +87,7 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    //tìm player 
     void OnPathComplete(Path p)
     {
         if (p.error) return;
@@ -124,6 +126,7 @@ public class EnemyAI : MonoBehaviour
             return playerPos;
     }
 
+    //AI cập nhật máu khi bị gây dame
     public void TakeHit(float damege)
     {
         Hitpoints -= damege;

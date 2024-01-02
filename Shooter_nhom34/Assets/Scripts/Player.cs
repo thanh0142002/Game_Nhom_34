@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -8,10 +9,55 @@ public class Player : MonoBehaviour
     private Vector3 moveInput;
     public Animator animator;
 
+    //health
+    [SerializeField] int maxHealth;
+    int currentHealth;
+
+    public HealthBar healthBar;
+
+    public UnityEvent OnDeath;
+
+
+
+    private void OnEnable()
+    {
+        OnDeath.AddListener(Death);
+    }
+
+    private void OnDisable()
+    {
+        OnDeath.RemoveListener(Death);
+    }
+    //
+
     private void Start()
     {
+
+
         animator = GetComponent<Animator>();
+        // health
+        currentHealth = maxHealth;
+        healthBar.UpdateBar(currentHealth, maxHealth);
+
+
     }
+
+    // cap nhat mau Player
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.UpdateBar(currentHealth, maxHealth);
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            OnDeath.Invoke();
+        }
+    }
+    public void Death()
+    {
+        Destroy(gameObject);
+    }
+    //
 
     private void Update()
     {
@@ -48,5 +94,6 @@ public class Player : MonoBehaviour
         // Cập nhật vị trí
         transform.position += moveInput * Time.deltaTime;
         animator.SetFloat("speed", moveInput.sqrMagnitude);
+
     }
 }
