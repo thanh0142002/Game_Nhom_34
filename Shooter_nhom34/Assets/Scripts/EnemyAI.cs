@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 using Unity.VisualScripting;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class EnemyAI : MonoBehaviour
     bool reachDestination = false;
     Path path;
     Coroutine moveCoroutine;
-
+    public levelUp levelup;
     private void Start()
     {
         player = FindObjectOfType<Player>().transform; // Lấy tham chiếu đến nhân vật của người chơi
@@ -43,6 +44,7 @@ public class EnemyAI : MonoBehaviour
 
         InvokeRepeating("CalculatePath", 0f, 0.5f);
         reachDestination = true;
+        levelup = FindObjectOfType<levelUp>();
 
     }
 
@@ -134,6 +136,7 @@ public class EnemyAI : MonoBehaviour
         HealthBar.SetHealth(Hitpoints, MaxHitpoints);
         if (Hitpoints <= 0)
         {
+            levelup.levelup();
             Destroy(gameObject); // Nếu muốn xóa enemy sau một thời gian
         }
     }

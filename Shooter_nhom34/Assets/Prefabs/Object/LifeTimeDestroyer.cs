@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static Cinemachine.DocumentationSortingAttribute;
 
 public class LifeTimeDestroyer : MonoBehaviour
 {
     public float Time;
     public bool BulletOfPlayer;
     private CircleCollider2D col;
-
+    public levelUp levelup;
     void Start()
     {
+        levelup = FindObjectOfType<levelUp>();
         col = GetComponent<CircleCollider2D>();
         Destroy(this.gameObject, Time);
     }
@@ -23,7 +25,7 @@ public class LifeTimeDestroyer : MonoBehaviour
         }
         if (collision.CompareTag("Enemy") && BulletOfPlayer)
         {
-            collision.GetComponent<EnemyAI>().TakeHit(1);
+            collision.GetComponent<EnemyAI>().TakeHit(1 + levelup.bonusdamage);
             Destroy(gameObject);
         }
     }
