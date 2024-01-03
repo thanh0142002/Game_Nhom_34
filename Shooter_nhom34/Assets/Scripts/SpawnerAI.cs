@@ -15,7 +15,7 @@ public class SpawAI : MonoBehaviour
     }
     public void StartRepeatingSpawnAI()
     {
-        InvokeRepeating("SpawnAI",0f , TimeSpawn);
+        InvokeRepeating("SpawnAI",3f , TimeSpawn);
     }
 
     void SpawnAI()

@@ -7,44 +7,45 @@ public class LifeTimeDestroyer : MonoBehaviour
 {
     public float Time;
     public bool BulletOfPlayer;
-    private Collider col;
+    private CircleCollider2D col;
 
     void Start()
     {
-        col = GetComponent<Collider>();
+        col = GetComponent<CircleCollider2D>();
         Destroy(this.gameObject, Time);
     }
-    /*    private void OnTriggerEnter2D(Collider2D collision)
-        {
-            if (collision.CompareTag("Player") && !goodSizeBullet)
-                collision.GetComponent<Player>().TakeDamage(5);
-            Destroy(gameObject);
-            if (collision.CompareTag("Enemy") && goodSizeBullet)
-                collision.GetComponent<EnemyAI>().TakeHit(1);
-            Destroy(gameObject);
-        }*/
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*var enemy = collision.collider.GetComponent<EnemyAI>();
-        if (enemy)
-            enemy.TakeHit(1);
-
-        Destroy(gameObject);*/
-        if (collision.gameObject.CompareTag("Player") && !BulletOfPlayer)
+        if (collision.CompareTag("Player") && !BulletOfPlayer)
         {
-            collision.collider.GetComponent<Player>().TakeDamage(5);
+            collision.GetComponent<Player>().TakeDamage(10);
             Destroy(gameObject);
         }
+        if (collision.CompareTag("Enemy") && BulletOfPlayer)
+        {
+            collision.GetComponent<EnemyAI>().TakeHit(1);
+            Destroy(gameObject);
+        }
+    }
+
+/*    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
         if (collision.gameObject.CompareTag("Enemy") && BulletOfPlayer)
         {
             collision.collider.GetComponent<EnemyAI>().TakeHit(1);
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Player") && !BulletOfPlayer)
+        {
+            collision.collider.GetComponent<Player>().TakeDamage(20);
+            Destroy(gameObject);
+        }
         if (collision.gameObject.CompareTag("Enemy") && !BulletOfPlayer)
         {
-            col.enabled = false;
+            col.isTrigger = true;
+            col.isTrigger = false;
         }
-    }
+    }*/
 
 }

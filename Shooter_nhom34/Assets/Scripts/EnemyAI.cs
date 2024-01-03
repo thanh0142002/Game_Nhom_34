@@ -27,6 +27,7 @@ public class EnemyAI : MonoBehaviour
     public float Hitpoints;
     public float MaxHitpoints = 5;
     public EnemyHeal HealthBar;
+    public Animator animator;
 
     bool reachDestination = false;
     Path path;
@@ -131,7 +132,9 @@ public class EnemyAI : MonoBehaviour
     {
         Hitpoints -= damege;
         HealthBar.SetHealth(Hitpoints, MaxHitpoints);
-        if (Hitpoints <= 0) 
-            Destroy(gameObject);
+        if (Hitpoints <= 0)
+        {
+            Destroy(gameObject); // Nếu muốn xóa enemy sau một thời gian
+        }
     }
 }

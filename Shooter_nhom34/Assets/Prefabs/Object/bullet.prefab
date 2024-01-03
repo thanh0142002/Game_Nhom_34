@@ -162,4 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Time: 2
-  goodSizeBullet: 1
+  BulletOfPlayer: 1
