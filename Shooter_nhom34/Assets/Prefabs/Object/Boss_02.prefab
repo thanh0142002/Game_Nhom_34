@@ -182,7 +182,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.43, y: -8.56, z: 0}
-  m_LocalScale: {x: 20, y: 20, z: 0}
+  m_LocalScale: {x: 14.219365, y: 14.219365, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7890097541698861857}
@@ -263,7 +263,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5e591e4f946a94fec806e592cc0a32a9, type: 3}
   m_Color: {r: 0, g: 0.9079659, b: 1, a: 1}
   m_FlipX: 0
@@ -294,10 +294,10 @@ MonoBehaviour:
   updateContinuesPath: 1
   isShootable: 1
   bullet: {fileID: 5154551892293819382, guid: 9a5a312b791a5b9419c4657d5691c6e4, type: 3}
-  bulletSpeed: 20
+  bulletSpeed: 50
   timeBtwFire: 2
   Hitpoints: 0
-  MaxHitpoints: 5
+  MaxHitpoints: 100
   HealthBar: {fileID: 4383534437928487652}
   animator: {fileID: 6938637246712955158}
   levelup: {fileID: 0}

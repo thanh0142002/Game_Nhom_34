@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     public UnityEvent OnDeath;
 
+    public GameMenu gameMenu;
+
 
 
     private void OnEnable()
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
+            gameMenu.gameOver();
             OnDeath.Invoke();
         }
     }

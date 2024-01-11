@@ -101,7 +101,7 @@ RectTransform:
   m_GameObject: {fileID: 2451048364459763582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7223205, y: 0.5330274, z: 1}
+  m_LocalScale: {x: 0.3644632, y: 0.3644632, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 328081983156012331}
@@ -277,7 +277,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5e591e4f946a94fec806e592cc0a32a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -306,10 +306,10 @@ MonoBehaviour:
   nextWPDistance: 0.3
   seeker: {fileID: 4023129899845356898}
   updateContinuesPath: 1
-  isShootable: 0
+  isShootable: 1
   bullet: {fileID: 0}
-  bulletSpeed: 0
-  timeBtwFire: 0
+  bulletSpeed: 20
+  timeBtwFire: 2
   Hitpoints: 0
   MaxHitpoints: 5
   HealthBar: {fileID: 2232895595691961870}

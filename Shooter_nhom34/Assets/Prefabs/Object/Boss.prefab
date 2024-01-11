@@ -228,7 +228,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 46600f93063694a4d8936e0c9605d539, type: 3}
   m_Color: {r: 0.9339623, g: 0.36565503, b: 0.36565503, a: 1}
   m_FlipX: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   seeker: {fileID: 5425015422584908199}
   updateContinuesPath: 1
   isShootable: 1
-  bullet: {fileID: 8707028304132257022, guid: 8c6fed0f0b13948478c05fafa46c6103, type: 3}
+  bullet: {fileID: 5154551892293819382, guid: 9a5a312b791a5b9419c4657d5691c6e4, type: 3}
   bulletSpeed: 50
   timeBtwFire: 2
   Hitpoints: 0
