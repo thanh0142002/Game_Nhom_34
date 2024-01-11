@@ -331,7 +331,7 @@ RectTransform:
   m_GameObject: {fileID: 4667826325792744037}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.36222762, y: 0.36222762, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5555031924110733975}
@@ -340,7 +340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0, y: -20.4}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4821688580121805509
@@ -592,6 +592,8 @@ MonoBehaviour:
   Hitpoints: 0
   MaxHitpoints: 5
   HealthBar: {fileID: 8174338872052023746}
+  animator: {fileID: 0}
+  levelup: {fileID: 0}
 --- !u!114 &-2864292331646707831
 MonoBehaviour:
   m_ObjectHideFlags: 0
