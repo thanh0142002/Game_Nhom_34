@@ -301,6 +301,8 @@ MonoBehaviour:
   HealthBar: {fileID: 4383534437928487652}
   animator: {fileID: 6938637246712955158}
   levelup: {fileID: 0}
+  Boss: {fileID: 1113959383087570446}
+  gameMenu: {fileID: 231628612255465247, guid: fe21a1d55dac34b4f8d00530a8ec34b0, type: 3}
 --- !u!114 &1766866194661388256
 MonoBehaviour:
   m_ObjectHideFlags: 0

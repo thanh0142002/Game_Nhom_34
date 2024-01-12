@@ -52,8 +52,8 @@ public class Player : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            gameMenu.gameOver();
             OnDeath.Invoke();
+            gameMenu.gameOver();
         }
     }
     public void Death()

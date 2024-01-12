@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 5425015422584908199}
   - component: {fileID: 2644644533322433362}
   - component: {fileID: 7684381109357270597}
+  - component: {fileID: 7861421676811865049}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Enemy
@@ -350,6 +351,8 @@ MonoBehaviour:
   HealthBar: {fileID: 3813483857562925112}
   animator: {fileID: 0}
   levelup: {fileID: 0}
+  Boss: {fileID: 3989233358751626273}
+  gameMenu: {fileID: 231628612255465247, guid: fe21a1d55dac34b4f8d00530a8ec34b0, type: 3}
 --- !u!114 &7684381109357270597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,6 +367,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minDamage: 5
   maxDamage: 8
+--- !u!114 &7861421676811865049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3989233358751626273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f51d1a5ff726f794a8e735e19c2bf472, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6697623996487501204
 GameObject:
   m_ObjectHideFlags: 0

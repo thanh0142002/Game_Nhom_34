@@ -590,10 +590,12 @@ MonoBehaviour:
   bulletSpeed: 30
   timeBtwFire: 2
   Hitpoints: 0
-  MaxHitpoints: 5
+  MaxHitpoints: 10
   HealthBar: {fileID: 8174338872052023746}
   animator: {fileID: 0}
   levelup: {fileID: 0}
+  Boss: {fileID: 0}
+  gameMenu: {fileID: 0}
 --- !u!114 &-2864292331646707831
 MonoBehaviour:
   m_ObjectHideFlags: 0
