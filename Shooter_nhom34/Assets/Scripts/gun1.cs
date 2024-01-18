@@ -53,15 +53,18 @@ public class gun1 : MonoBehaviour
         {
             FireBullet();
 
-            // Sound Prefab clone
-            if (createPrefabAudio != null)
-            {
-                AudioSource.PlayClipAtPoint(createPrefabAudio, transform.position);
-            }
+            
         }
 
         // Cập nhật vị trí
         transform.position += moveInput * Time.deltaTime;
+
+        transform.position = new Vector3
+        (
+            Mathf.Clamp(transform.position.x, -68f, 38f),
+            Mathf.Clamp(transform.position.y, -35f, 22f)
+
+        );
 
         RotateGun();
         timeBtwFire -= Time.deltaTime;
@@ -96,5 +99,10 @@ public class gun1 : MonoBehaviour
         GameObject bulletTmp = Instantiate(bullet, firePos.position, Quaternion.identity);
         Rigidbody2D rb = bulletTmp.GetComponent<Rigidbody2D>();
         rb.AddForce(transform.right * bulletForce, ForceMode2D.Impulse);
+        // Sound Prefab clone
+        if (createPrefabAudio != null)
+        {
+            AudioSource.PlayClipAtPoint(createPrefabAudio, transform.position);
+        }
     }
 }

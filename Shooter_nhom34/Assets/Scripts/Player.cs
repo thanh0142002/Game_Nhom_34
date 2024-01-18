@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
     public UnityEvent OnDeath;
 
     public GameMenu gameMenu;
-
+    public AudioClip createPrefabAudio;
 
 
     private void OnEnable()
@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
             currentHealth = 0;
             OnDeath.Invoke();
             gameMenu.gameOver();
+            AudioSource.PlayClipAtPoint(createPrefabAudio, transform.position);
         }
     }
     public void Death()
@@ -98,5 +99,11 @@ public class Player : MonoBehaviour
         transform.position += moveInput * Time.deltaTime;
         animator.SetFloat("speed", moveInput.sqrMagnitude);
 
+        transform.position = new Vector3
+        (
+            Mathf.Clamp(transform.position.x, -68f, 38f),
+            Mathf.Clamp(transform.position.y, -35f, 22f)
+            
+        );
     }
 }

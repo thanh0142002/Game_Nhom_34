@@ -317,6 +317,7 @@ MonoBehaviour:
   levelup: {fileID: 0}
   Boss: {fileID: 0}
   gameMenu: {fileID: 0}
+  createPrefabAudio: {fileID: 8300000, guid: d5de6886c950c9043851308ab722c854, type: 3}
 --- !u!114 &4023129899845356898
 MonoBehaviour:
   m_ObjectHideFlags: 0

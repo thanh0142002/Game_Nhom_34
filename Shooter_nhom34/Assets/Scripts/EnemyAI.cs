@@ -37,6 +37,7 @@ public class EnemyAI : MonoBehaviour
 
     public GameObject Boss;
     public GameMenu gameMenu;
+    public AudioClip createPrefabAudio;
     private void Start()
     {
         player = FindObjectOfType<Player>().transform; // Lấy tham chiếu đến nhân vật của người chơi
@@ -139,15 +140,17 @@ public class EnemyAI : MonoBehaviour
     {
         Hitpoints -= damege;
         HealthBar.SetHealth(Hitpoints, MaxHitpoints);
-        if (Hitpoints <= 0)
+        if (Hitpoints <= 0 && !Boss)
         {
             levelup.levelup();
-            Destroy(gameObject); // Nếu muốn xóa enemy sau một thời gian
+            Destroy(gameObject);
+            AudioSource.PlayClipAtPoint(createPrefabAudio, transform.position);
         }
         if (Hitpoints <= 0 && Boss) 
         {
             Destroy(gameObject);
             gameMenu.gameWin();
+            AudioSource.PlayClipAtPoint(createPrefabAudio, transform.position);
             Time.timeScale = 0f;
         }
     }
