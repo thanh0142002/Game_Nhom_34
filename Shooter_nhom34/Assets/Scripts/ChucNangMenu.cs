@@ -15,8 +15,8 @@ public class ChucNangMenu : MonoBehaviour
         SceneManager.LoadScene(0);
     }
     public void Thoat() 
-    {
-        Application.Quit();
+    {   
+        Application.Quit(); 
     }
     public void TamDung()
     {

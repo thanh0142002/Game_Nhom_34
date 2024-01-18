@@ -10,6 +10,8 @@ public class gun1 : MonoBehaviour
     public float bulletForce;
     private float timeBtwFire;
 
+    public AudioClip soundClip;
+    public AudioClip createPrefabAudio;
 
     public float _speed = 10f;
     private Vector3 moveInput;
@@ -45,6 +47,17 @@ public class gun1 : MonoBehaviour
         else
         {
             moveInput.y = 0f;
+        }
+
+        if (Input.GetMouseButton(0) && timeBtwFire < 0)
+        {
+            FireBullet();
+
+            // Sound Prefab clone
+            if (createPrefabAudio != null)
+            {
+                AudioSource.PlayClipAtPoint(createPrefabAudio, transform.position);
+            }
         }
 
         // Cập nhật vị trí
